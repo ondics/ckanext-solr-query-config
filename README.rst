@@ -1,15 +1,17 @@
 ckanext-solr-query-config
 #################
 
-*ckanext-solr-query-config* ist eine CKAN Extension und erlaubt es CKAN Parameter, die an Solr gesendet werden, zu überschreiben.
-*ckanext-solr-query-config* war ursprünglich Teil des größeren ckanext-discovery Plugins und kann jetzt als eigenständiges Plugin genutzt werden.
+*ckanext-solr-query-config* ist eine CKAN_ Extension und erlaubt es CKAN Parameter, die an Solr gesendet werden, zu überschreiben.
+
+*ckanext-solr-query-config* war ursprünglich Teil des größeren ckanext-discovery_ Plugins und kann jetzt als eigenständiges Plugin genutzt werden.
 
 This Repo currently is only in german language available. Feel free to submit translations.
 
 System-Voraussetzungen
 ======================
 
-Getestet wurde das Plugin mit CKAN 2.9.
+Getestet wurde das Plugin mit CKAN 2.9
+
 Andere Versionen wurden nicht getestet. Feedback zur Funktionalität mit anderen Versionen sind herzlich Willkommen.
 
 Installation
@@ -47,13 +49,15 @@ solr-query-config ermöglicht es die Parameter, die CKAN an Solr sendet, durch E
 Es kann entweder ein Default Wert für einen Parameter angeben werden (wird standardmäßig in Anfragen verwendet, in denen der Parameter nicht explizit gesetzt ist)
 oder es kann ein Wert forciert werden.
 
-Um einen Default Wert anzugeben, wird folgender Code dem Parameternamen vorangestellt::
+Um einen Default Wert anzugeben, wird folgender Code dem Parameternamen vorangestellt:
+
 ``ckanext.solr_query_config.default.`` z.B.::
 
-    # Per Default wird nach dem Metadaten Modifikations Zeitstempel sortiert::
+    # Per Default wird nach dem Metadaten Modifikations Zeitstempel sortiert:
     ckanext.solr_query_config.solr.default.sort = metadata_modified asc
 
-Auf ähnliche Weise kann ein Wert mit folgendem Präfix forciert werden::
+Auf ähnliche Weise kann ein Wert mit folgendem Präfix forciert werden:
+
 ``ckanext.solr_query_config.force.`` z.B.::
 
     # Es wird immer ein benutzerdefinierter Solr query handler verwendet:
@@ -80,6 +84,7 @@ Autor
 =====
 
 Copyright (C) 2021 Ondics GmbH
+
 https://ondics.de
 
 
