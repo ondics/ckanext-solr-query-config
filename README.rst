@@ -1,34 +1,41 @@
 ckanext-solr-query-config
 #################
 
+*ckanext-solr-query-config* ist eine CKAN Extension und erlaubt es CKAN Parameter, die an Solr gesendet werden, zu überschreiben.
 *ckanext-solr-query-config* war ursprünglich Teil des größeren ckanext-discovery Plugins und kann jetzt als eigenständiges Plugin genutzt werden.
+
+This Repo currently is only in german language available. Feel free to submit translations.
+
+System-Voraussetzungen
+======================
+
 Getestet wurde das Plugin mit CKAN 2.9.
 Andere Versionen wurden nicht getestet. Feedback zur Funktionalität mit anderen Versionen sind herzlich Willkommen.
 
 Installation
 ============
 
-Aktivieren Sie zuerst die CKAN-Umgebung::
+Aktivieren der CKAN-Umgebung::
 
     . /usr/lib/ckan/default/bin/activate
 
-Dann installieren Sie die das dieses Plugin::
+Installation des Plugins::
 
     pip install -e git+https://github.com/ondics/ckanext-solr-query-config#egg=ckanext-solr-query-config
 
-Wenn Sie eine bestimmte Version installieren möchten, können Sie es im wie folgt angeben:
+Zum Installieren einer bestimmten Version::
 
-    pip install -e git+https://github.com/ondics/ckanext-solr-query-config@v0.1.1#egg=ckanext-solr-query-config
+    pip install -e git+https://github.com/ondics/ckanext-solr-query-config@v1.0.0#egg=ckanext-solr-query-config
 
-Fügen Sie ``solr-query-config`` zu Ihrere Liste aktiver Plugins in der CKAN Konfigurations INI hinzu::
+Hinzufügen von ``solr-query-config`` zur Liste der aktiven Plugins in der CKAN Konfigurations INI::
     
     plugins = ... solr_query_config
 
-und starten Sie CKAN neu::
+CKAN neu starten::
 
     sudo service apache2 restart
 
-oder
+oder::
 
     sudo supervisorctl restart ckan-uwsgi:
 
@@ -36,10 +43,11 @@ oder
 Konfiguration
 =============
 
-solr-query-config ermöglicht es Ihnen die Parameter, die CKAN an Solr sendet, durch Einträge in CKANs Konfigurations INI einfach zu überschreiben.
-Sie können einfach einen Default Wert für einen Parameter angeben (dieser Default Wert wird nur in Anfragen genutzt, in denen dieser Parameter noch nicht gesetzt ist)
+solr-query-config ermöglicht es die Parameter, die CKAN an Solr sendet, durch Einträge in CKANs Konfigurations INI einfach zu überschreiben.
+Es kann entweder ein Default Wert für einen Parameter angeben werden (wird standardmäßig in Anfragen verwendet, in denen der Parameter nicht explizit gesetzt ist)
+oder es kann ein Wert forciert werden.
 
-Um einen Default Wert anzugeben, stellen Sie folgenden Code dem Parameternamen voran::
+Um einen Default Wert anzugeben, wird folgender Code dem Parameternamen vorangestellt::
 ``ckanext.solr_query_config.default.`` z.B.::
 
     # Per Default wird nach dem Metadaten Modifikations Zeitstempel sortiert::
@@ -51,22 +59,33 @@ Auf ähnliche Weise kann ein Wert mit folgendem Präfix forciert werden::
     # Es wird immer ein benutzerdefinierter Solr query handler verwendet:
     ckanext.solr_query_config.solr.force.defType = my_special_query_handler
 
-Bitte beachten Sie, dass nur die Solr Parameter, die von der package_search_ API akzeptiert werden, so eingestellt werden können.
+Nur die Solr Parameter, die von der package_search_ API akzeptiert werden, können auf diese Weise eingestellt werden.
 
+Credits
+=======
+
+Dank geht an die Repo-Ersteller
+
+    CKAN_
+    SOLR_
+    ckanext-discovery_
 
 Lizenz
 =======
-Copyright (C) 2021 Ondics GmbH (www.ondics.de)
 
 Distributed in der the GNU Affero General Public License. See the file
 ``LICENSE`` for details.
 
+Autor
+=====
 
-.. _CKAN: http://ckan.org
-.. _configuration INI: http://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-configuration-file
-.. _package_search: http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.get.package_search
-.. _More Like This: https://cwiki.apache.org/confluence/display/solr/MoreLikeThis
-.. _MoreLikeThisHandler: https://cwiki.apache.org/confluence/display/solr/MoreLikeThis#MoreLikeThis-ParametersfortheMoreLikeThisHandler
-.. _term vector storage: https://cwiki.apache.org/confluence/display/solr/Field+Type+Definitions+and+Properties#FieldTypeDefinitionsandProperties-FieldDefaultProperties
-.. _template snippet: http://docs.ckan.org/en/latest/theming/templates.html#snippets
+Copyright (C) 2021 Ondics GmbH
+https://ondics.de
 
+
+.. _CKAN: https://ckan.org
+.. _SOLR: https://solr.apache.org/
+.. _configuration INI: https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-configuration-file
+.. _package_search: https://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.get.package_search
+.. _template snippet: https://docs.ckan.org/en/latest/theming/templates.html#snippets
+.. _ckanext-discovery: https://github.com/stadt-karlsruhe/ckanext-discovery
