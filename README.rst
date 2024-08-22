@@ -54,14 +54,14 @@ Um einen Default Wert anzugeben, wird folgender Code dem Parameternamen voranges
 ``ckanext.solr_query_config.default.`` z.B.::
 
     # Per Default wird nach dem Metadaten Modifikations Zeitstempel sortiert:
-    ckanext.solr_query_config.solr.default.sort = metadata_modified asc
+    ckanext.solr_query_config.default.sort = metadata_modified asc
 
 Auf ähnliche Weise kann ein Wert mit folgendem Präfix forciert werden:
 
 ``ckanext.solr_query_config.force.`` z.B.::
 
     # Es wird immer ein benutzerdefinierter Solr query handler verwendet:
-    ckanext.solr_query_config.solr.force.defType = my_special_query_handler
+    ckanext.solr_query_config.force.defType = my_special_query_handler
 
 Nur die Solr Parameter, die von der package_search_ API akzeptiert werden, können auf diese Weise eingestellt werden.
 

@@ -20,8 +20,8 @@ class SolrQueryConfigPlugin(plugins.SingletonPlugin):
     DEFAULT_PREFIX = CONFIG_PREFIX + 'default.'
     FORCE_PREFIX = CONFIG_PREFIX + 'force.'
 
-    def before_search(self, params):
-        for key, value in config.iteritems():
+    def before_dataset_search(self, params):
+        for key, value in config.items():
             if key.startswith(self.DEFAULT_PREFIX):
                 key = key[len(self.DEFAULT_PREFIX):]
                 try:
